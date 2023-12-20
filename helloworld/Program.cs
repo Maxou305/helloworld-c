@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 
 namespace helloworld
 {
     internal class Program
     {
+
+        private static ConsoleKeyInfo test;
         static void Main(string[] args)
         {
             string user = Environment.UserName;

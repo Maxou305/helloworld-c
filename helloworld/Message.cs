@@ -9,24 +9,24 @@ namespace helloworld
 {
     internal class Message
     {
-        private string helloMessage;
-        private int morning;
-        private int afternoon;
-        private int evening;
+        private string _helloMessage;
+        private int _morning;
+        private int _afternoon;
+        private int _evening;
         public string HelloMessage
         {
-            get { return helloMessage; }
-            set { helloMessage = getMessage(value); }
+            get { return _helloMessage; }
+            set { _helloMessage = BuildMessage(value); }
         }
 
         public Message(int morning, int afternoon, int evening)
         {
-            this.morning = morning;
-            this.afternoon = afternoon;
-            this.evening = evening;
+            this._morning = morning;
+            this._afternoon = afternoon;
+            this._evening = evening;
         }
 
-        private string getMessage(string message)
+        private string BuildMessage(string message)
         {
             DateTime moment = DateTime.Now;
 
@@ -35,11 +35,11 @@ namespace helloworld
 
             if (day > 1 && day < 6)
             {
-                if (hour < afternoon)
+                if (hour < _afternoon)
                 {
                     return "Bonjour, "+message;
                 }
-                else if (hour < evening)
+                else if (hour < _evening)
                 {
                     return "Bon après-midi, "+message;
                 }
@@ -48,7 +48,7 @@ namespace helloworld
                     return "Bonsoir, " + message;
                 }
             }
-            if ((day == 4 && hour > evening) || (day == 1 && hour <= morning) || day == 0)
+            if ((day == 4 && hour > _evening) || (day == 1 && hour <= _morning) || day == 0)
             {
                 return "Bon  week-end, " + message;
             }
