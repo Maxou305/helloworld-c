@@ -1,0 +1,7 @@
+C:\Users\maxime.chazard\source\repos\helloworld\helloworld\bin\Debug\helloworld.exe.config
+C:\Users\maxime.chazard\source\repos\helloworld\helloworld\bin\Debug\helloworld.exe
+C:\Users\maxime.chazard\source\repos\helloworld\helloworld\bin\Debug\helloworld.pdb
+C:\Users\maxime.chazard\source\repos\helloworld\helloworld\obj\Debug\helloworld.csproj.AssemblyReference.cache
+C:\Users\maxime.chazard\source\repos\helloworld\helloworld\obj\Debug\helloworld.csproj.CoreCompileInputs.cache
+C:\Users\maxime.chazard\source\repos\helloworld\helloworld\obj\Debug\helloworld.exe
+C:\Users\maxime.chazard\source\repos\helloworld\helloworld\obj\Debug\helloworld.pdb
