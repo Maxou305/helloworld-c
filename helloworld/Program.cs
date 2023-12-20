@@ -6,32 +6,19 @@ namespace helloworld
     {
         static void Main(string[] args)
         {
-            DateTime moment = DateTime.Now;
-
-            int day = (int)moment.DayOfWeek;
-            int hour = moment.Hour;
-            string message = "";
-
-            if (day > 1 && day < 6)
+            string user = Environment.UserName;
+            Message message = new Message(9, 13, 18)
             {
-                if (hour > 9 && hour < 13)
-                {
-                    message = "Bonjour, ";
-                }
-                else if (hour < 18)
-                {
-                    message = "Bon après-midi, ";
-                }
-                else
-                {
-                    message = "Bonsoir, ";
-                }
-            }
-            if ((day == 4 && hour > 18) || (day == 1 && hour <= 9) || day == 0)
+                HelloMessage = user
+            };
+
+            bool stop = false;
+
+            while (!stop)
             {
-                message = "Bon  week-end, ";
+                Console.WriteLine(message.HelloMessage);
+                stop = Console.ReadLine() == "exit";
             }
-            Console.WriteLine(message + Environment.UserName);
         }
     }
 }
