@@ -11,7 +11,7 @@ namespace helloworld
     {
         private string _helloMessage;
 
-        private ITime moment;
+        private ITime today;
 
         private int _morning;
         private int _afternoon;
@@ -20,7 +20,7 @@ namespace helloworld
         public string HelloMessage
         {
             get { return _helloMessage; }
-            set { _helloMessage = BuildMessage(moment, value); }
+            set { _helloMessage = BuildMessage(today, value); }
         }
 
         public Message(int morning, int afternoon, int evening)
@@ -28,14 +28,14 @@ namespace helloworld
             this._morning = morning;
             this._afternoon = afternoon;
             this._evening = evening;
-            moment = new Time();
+            today = new Time();
         }
         public Message(int morning, int afternoon, int evening, ITime time)
         {
             this._morning = morning;
             this._afternoon = afternoon;
             this._evening = evening;
-            moment = time;
+            today = time;
         }
 
         public string BuildMessage(ITime moment, string user)
