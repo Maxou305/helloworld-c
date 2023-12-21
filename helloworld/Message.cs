@@ -41,7 +41,7 @@ namespace helloworld
         public string BuildMessage(ITime moment, string user)
         {
             int day = (int) moment.GetDate().DayOfWeek;
-            int hour = (int) moment.GetDate().Hour;
+            int hour = moment.GetDate().Hour;
 
             if (day > 1 && day < 6)
             {

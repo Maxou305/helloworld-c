@@ -14,7 +14,7 @@ namespace helloworld
         }
         public DateTime GetDate()
         {
-            return DateTime.Now;
+            return _time;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace vraistests
             string user = Environment.UserName;
             Message testMessage = new Message(9, 12, 18);
             string result = testMessage.BuildMessage(new FakeTime(), user);
-            Assert.AreEqual(result, "Bonjour, maxime.chazard");
+            Assert.AreEqual("Bonjour, " +user, result);
         }
         [TestMethod]
         public void TestOfDate()
@@ -23,7 +23,7 @@ namespace vraistests
             Message testMessage = new Message(9, 12, 18);
 
             string result = testMessage.BuildMessage(new FakeTime(2008, 5, 1, 18, 30, 52), user);
-            Assert.AreEqual(result, "Bonsoir, maxime.chazard");
+            Assert.AreEqual("Bonsoir, "+user, result);
         }
         [TestMethod]
         public void TestThomas()
@@ -31,7 +31,7 @@ namespace vraistests
             string user = Environment.UserName;
             Message testMessage = new Message(9, 12, 18);
             string result = testMessage.BuildMessage(new FakeTime(), user);
-            Assert.AreNotEqual(result, "sudo mv /var/www/html/e-commerce/shop.php /var/www/html/e-commerce/index.php");
+            Assert.AreNotEqual("sudo mv /var/www/html/e-commerce/shop.php /var/www/html/e-commerce/index.php",result);
         }
     }
 }
