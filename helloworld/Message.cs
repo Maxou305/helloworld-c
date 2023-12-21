@@ -7,16 +7,20 @@ using System.Threading.Tasks;
 
 namespace helloworld
 {
-    internal class Message
+    public class Message
     {
         private string _helloMessage;
+
+        private ITime moment;
+
         private int _morning;
         private int _afternoon;
         private int _evening;
+
         public string HelloMessage
         {
             get { return _helloMessage; }
-            set { _helloMessage = BuildMessage(value); }
+            set { _helloMessage = BuildMessage(moment, value); }
         }
 
         public Message(int morning, int afternoon, int evening)
@@ -24,36 +28,41 @@ namespace helloworld
             this._morning = morning;
             this._afternoon = afternoon;
             this._evening = evening;
+            moment = new Time();
+        }
+        public Message(int morning, int afternoon, int evening, ITime time)
+        {
+            this._morning = morning;
+            this._afternoon = afternoon;
+            this._evening = evening;
+            moment = time;
         }
 
-        private string BuildMessage(string message)
+        public string BuildMessage(ITime moment, string user)
         {
-            DateTime moment = DateTime.Now;
-
-            int day = (int)moment.DayOfWeek;
-            int hour = moment.Hour;
+            int day = (int) moment.GetDate().DayOfWeek;
+            int hour = (int) moment.GetDate().Hour;
 
             if (day > 1 && day < 6)
             {
                 if (hour < _afternoon)
                 {
-                    return "Bonjour, "+message;
+                    return "Bonjour, " + user;
                 }
                 else if (hour < _evening)
                 {
-                    return "Bon après-midi, "+message;
+                    return "Bon après-midi, " + user;
                 }
                 else
                 {
-                    return "Bonsoir, " + message;
+                    return "Bonsoir, " + user;
                 }
             }
             if ((day == 4 && hour > _evening) || (day == 1 && hour <= _morning) || day == 0)
             {
-                return "Bon  week-end, " + message;
+                return "Bon  week-end, " + user;
             }
             return "Oups I fucked up somewhere Oo";
         }
-
     }
 }
